@@ -1,0 +1,61 @@
+/* ============================================================
+   TOKENS — single source of truth for color, type and space.
+   Change a value here and it propagates through the whole site.
+   ============================================================ */
+:root {
+  color-scheme: dark;
+
+  /* --- Ground & surfaces: cool ink, blue-biased neutrals --- */
+  --ink:        #0B0D12;
+  --panel:      #12151C;
+  --raised:     #171B24;
+  --line:       #242A36;
+  --line-soft:  #1B2029;
+
+  /* --- Text --- */
+  --text:       #E9EBF0;
+  --text-dim:   #A3ABBB;
+  --text-mute:  #767F90;
+
+  /* --- Accent: copper signal on cool ground --- */
+  --copper:      #DD8A4F;
+  --copper-lift: #E9975C;
+  --copper-dim:  #8A5730;
+  --copper-wash: rgba(221, 138, 79, 0.10);
+
+  /* --- Status only: never used as a decorative accent --- */
+  --jade:       #6FB89A;
+  --jade-line:  rgba(111, 184, 154, 0.35);
+  --jade-wash:  rgba(111, 184, 154, 0.12);
+
+  /* --- Type families --- */
+  --f-display: "Bricolage Grotesque", "Trebuchet MS", sans-serif;
+  --f-body:    "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --f-mono:    "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* --- Type scale --- */
+  --t-xs:   0.72rem;
+  --t-sm:   0.83rem;
+  --t-base: 0.97rem;
+  --t-md:   1.08rem;
+  --t-lg:   1.35rem;
+  --t-xl:   1.9rem;
+  --t-3xl:  clamp(2.6rem, 6.2vw, 4.4rem);
+
+  /* --- Space scale --- */
+  --s-1: 0.35rem;
+  --s-2: 0.6rem;
+  --s-3: 1rem;
+  --s-4: 1.5rem;
+  --s-5: 2.25rem;
+  --s-6: 3.5rem;
+  --s-7: 5.5rem;
+
+  /* --- Layout --- */
+  --wrap: 1140px;
+  --rail: 190px;
+  --radius: 10px;
+
+  /* --- Motion --- */
+  --ease: 0.18s ease;
+}

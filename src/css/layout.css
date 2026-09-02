@@ -1,0 +1,36 @@
+/* ============================================================
+   LAYOUT PRIMITIVES — reused by every section, own no colors
+   ============================================================ */
+.wrap {
+  width: 100%;
+  max-width: var(--wrap);
+  margin-inline: auto;
+  padding-inline: var(--s-4);
+}
+
+.section {
+  padding-block: var(--s-7);
+  border-top: 1px solid var(--line-soft);
+}
+.section:first-of-type { border-top: 0; }
+
+/*
+ * .spec — the datasheet grid this site is built on:
+ * a mono spec label in a sticky left rail, content on the right.
+ */
+.spec {
+  display: grid;
+  grid-template-columns: var(--rail) minmax(0, 1fr);
+  gap: var(--s-5);
+  align-items: start;
+}
+.spec__rail { position: sticky; top: var(--s-4); }
+
+/* Vertical rhythm helpers */
+.stack   { display: grid; gap: var(--s-3); }
+.stack-4 { display: grid; gap: var(--s-4); }
+.stack-5 { display: grid; gap: var(--s-5); }
+
+/* Equal-width tracks */
+.grid-2 { display: grid; gap: var(--s-4); grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.grid-3 { display: grid; gap: var(--s-4); grid-template-columns: repeat(3, minmax(0, 1fr)); }

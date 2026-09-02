@@ -1,0 +1,189 @@
+/* ============================================================
+   COMPONENTS — every repeated object on the page lives here
+   ============================================================ */
+
+/* --- Eyebrow + rail label -------------------------------- */
+.eyebrow {
+  display: block;
+  font-family: var(--f-mono);
+  font-size: var(--t-xs);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-mute);
+}
+
+.rail-title {
+  display: block;
+  margin-top: var(--s-2);
+  font-family: var(--f-display);
+  font-size: var(--t-md);
+  color: var(--text);
+}
+
+.rail-note {
+  display: block;
+  margin-top: var(--s-2);
+  font-size: var(--t-sm);
+  color: var(--text-mute);
+}
+
+/* --- Level chip: states the verified depth of a capability - */
+.chip {
+  font-family: var(--f-mono);
+  font-size: var(--t-xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.18em 0.6em;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  color: var(--text-dim);
+  white-space: nowrap;
+}
+.chip--prod  { color: var(--copper); border-color: var(--copper-dim); background: var(--copper-wash); }
+.chip--hands { color: var(--jade);   border-color: var(--jade-line);  background: var(--jade-wash); }
+
+/* --- Panel: the one raised object, spent sparingly --------- */
+.panel {
+  padding: var(--s-4);
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+/* --- Rows: key/value pairs separated by a hairline --------- */
+.rows { display: grid; }
+
+.row {
+  display: grid;
+  grid-template-columns: minmax(120px, 30%) minmax(0, 1fr);
+  gap: var(--s-3);
+  padding-block: var(--s-3);
+  border-top: 1px solid var(--line-soft);
+  align-items: baseline;
+}
+.row:first-child { border-top: 0; padding-top: 0; }
+
+.row__k {
+  font-family: var(--f-mono);
+  font-size: var(--t-sm);
+  letter-spacing: 0.02em;
+  color: var(--text-mute);
+}
+.row__v { color: var(--text-dim); }
+
+/* --- Bullets with a copper tick ---------------------------- */
+.bullets { display: grid; gap: var(--s-2); }
+
+.bullets li {
+  position: relative;
+  padding-left: 1.15rem;
+  color: var(--text-dim);
+}
+.bullets li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.68em;
+  width: 5px;
+  height: 5px;
+  border-radius: 1px;
+  background: var(--copper-dim);
+}
+
+/* --- Tag cloud --------------------------------------------- */
+.tags { display: flex; flex-wrap: wrap; gap: var(--s-2); }
+
+.tag {
+  padding: 0.25em 0.85em;
+  font-size: var(--t-sm);
+  color: var(--text-dim);
+  background: var(--raised);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+}
+
+/* --- Metric: an approved figure with its caption ----------- */
+.metric__n {
+  display: block;
+  font-family: var(--f-display);
+  font-size: var(--t-xl);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+  color: var(--copper);
+}
+
+.metric__c {
+  display: block;
+  margin-top: var(--s-1);
+  font-family: var(--f-mono);
+  font-size: var(--t-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-mute);
+}
+
+/* --- Inline link ------------------------------------------- */
+.link {
+  color: var(--copper);
+  border-bottom: 1px solid var(--copper-dim);
+  padding-bottom: 1px;
+  transition: border-color var(--ease), color var(--ease);
+}
+.link:hover { border-bottom-color: var(--copper); }
+
+/* --- Button ------------------------------------------------ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  padding: 0.7em 1.2em;
+  font-family: var(--f-mono);
+  font-size: var(--t-sm);
+  letter-spacing: 0.04em;
+  color: var(--text);
+  background: var(--raised);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  transition: border-color var(--ease), background var(--ease), transform var(--ease);
+}
+.btn:hover {
+  border-color: var(--copper-dim);
+  background: var(--panel);
+  transform: translateY(-1px);
+}
+
+.btn--primary {
+  font-weight: 500;
+  color: #17110A;
+  background: var(--copper);
+  border-color: var(--copper);
+}
+.btn--primary:hover {
+  background: var(--copper-lift);
+  border-color: var(--copper-lift);
+}
+
+/* --- Availability status pill ------------------------------ */
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  padding: 0.3em 0.85em;
+  font-family: var(--f-mono);
+  font-size: var(--t-xs);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--jade);
+  background: var(--jade-wash);
+  border: 1px solid var(--jade-line);
+  border-radius: 999px;
+}
+
+.status__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--jade);
+  box-shadow: 0 0 0 3px rgba(111, 184, 154, 0.18);
+}

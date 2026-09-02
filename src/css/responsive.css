@@ -1,0 +1,36 @@
+/* ============================================================
+   RESPONSIVE — loaded last so these rules win without !important
+   ============================================================ */
+
+@media (max-width: 900px) {
+  .spec {
+    grid-template-columns: 1fr;
+    gap: var(--s-4);
+  }
+  .spec__rail { position: static; }
+
+  .hero__grid {
+    grid-template-columns: 1fr;
+    gap: var(--s-5);
+    align-items: start;
+  }
+
+  .grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 620px) {
+  :root {
+    --s-6: 2.5rem;
+    --s-7: 3.5rem;
+  }
+
+  .grid-2,
+  .grid-3 { grid-template-columns: 1fr; }
+
+  .row {
+    grid-template-columns: 1fr;
+    gap: var(--s-1);
+  }
+
+  .hero__pitch { max-width: none; }
+}

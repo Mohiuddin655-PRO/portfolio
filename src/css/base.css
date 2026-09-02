@@ -1,0 +1,52 @@
+/* ============================================================
+   BASE — reset, document defaults, typography defaults
+   ============================================================ */
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--ink);
+  color: var(--text);
+  font-family: var(--f-body);
+  font-size: var(--t-base);
+  line-height: 1.62;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4 {
+  margin: 0;
+  font-family: var(--f-display);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+}
+
+p { margin: 0; }
+ul { margin: 0; padding: 0; list-style: none; }
+img, svg { max-width: 100%; }
+
+a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--copper);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+/* Utility: muted supporting copy. Used instead of inline styles. */
+.lead  { color: var(--text-dim); }
+.note  { color: var(--text-mute); font-size: var(--t-sm); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition: none !important;
+    animation: none !important;
+    scroll-behavior: auto !important;
+  }
+}
