@@ -39,6 +39,21 @@ button:focus-visible {
   border-radius: 3px;
 }
 
+/*
+ * Theme crossfade. The class is added by theme.js only for the duration of a
+ * user-initiated switch, so hover states and first paint stay instant and no
+ * permanent universal transition is left on the page. Elements that already
+ * declare their own transition keep it — they animate the same properties, so
+ * the flip still reads as one motion and nothing here needs !important.
+ */
+:root.theme-switching,
+:root.theme-switching *,
+:root.theme-switching *::before,
+:root.theme-switching *::after {
+  transition: background-color var(--theme-ease), border-color var(--theme-ease),
+              color var(--theme-ease), box-shadow var(--theme-ease);
+}
+
 /* Utility: muted supporting copy. Used instead of inline styles. */
 .lead  { color: var(--text-dim); }
 .note  { color: var(--text-mute); font-size: var(--t-sm); }

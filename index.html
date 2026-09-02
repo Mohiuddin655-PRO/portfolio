@@ -15,6 +15,28 @@
 
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 
+  <!--
+    Resolve the theme before first paint so there is no flash of the wrong one:
+    stored choice first, OS preference otherwise. Dark is the base palette in
+    tokens.css, so only light needs an attribute. Keep this rule identical to
+    the one in src/js/theme.js.
+  -->
+  <script>
+    (function () {
+      var theme = "dark";
+      try {
+        var stored = localStorage.getItem("theme");
+        theme = (stored === "light" || stored === "dark")
+          ? stored
+          : (matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
+      } catch (e) { /* blocked storage — keep the dark default */ }
+
+      document.documentElement.dataset.theme = theme;
+      var meta = document.querySelector('meta[name="theme-color"]');
+      if (meta) meta.content = theme === "light" ? "#F4F5F8" : "#0B0D12";
+    })();
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
@@ -31,6 +53,19 @@
 </head>
 
 <body>
+
+<!-- Fixed chrome, not content. Behaviour lives in src/js/theme.js. -->
+<button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch to light theme" title="Switch to light theme">
+  <svg class="theme-toggle__sun" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+       stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+    <circle cx="12" cy="12" r="4.2"/>
+    <path d="M12 2.6v2.2M12 19.2v2.2M4.4 4.4l1.6 1.6M18 18l1.6 1.6M2.6 12h2.2M19.2 12h2.2M4.4 19.6l1.6-1.6M18 6l1.6-1.6"/>
+  </svg>
+  <svg class="theme-toggle__moon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+       stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M20.5 14.4A8.6 8.6 0 1 1 9.6 3.5a6.8 6.8 0 0 0 10.9 10.9Z"/>
+  </svg>
+</button>
 
 <!--
   Every element below with an id is a mount point filled from src/js/content.js.

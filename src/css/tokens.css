@@ -1,6 +1,19 @@
 /* ============================================================
    TOKENS — single source of truth for color, type and space.
    Change a value here and it propagates through the whole site.
+
+   THEMING
+   -------
+   Dark is the base palette and lives on bare :root, so the site
+   is always styled even if JavaScript never runs. Light is a
+   single override block on :root[data-theme="light"].
+
+   The blocking script in <head> resolves the active theme before
+   first paint — stored choice first, OS preference otherwise —
+   and stamps data-theme on <html>. Because that resolution happens
+   in one place, each palette is declared exactly once here; there
+   is no second copy inside a prefers-color-scheme media query to
+   keep in sync.
    ============================================================ */
 :root {
   color-scheme: dark;
@@ -20,13 +33,22 @@
   /* --- Accent: copper signal on cool ground --- */
   --copper:      #DD8A4F;
   --copper-lift: #E9975C;
-  --copper-dim:  #8A5730;
+  --copper-dim:  #8A5730;   /* decorative only: borders, bullet ticks */
+  --copper-text: #BF8250;   /* small copper text — meets AA on every surface */
   --copper-wash: rgba(221, 138, 79, 0.10);
+  --on-copper:   #17110A;   /* text sitting on a filled copper button */
 
   /* --- Status only: never used as a decorative accent --- */
   --jade:       #6FB89A;
   --jade-line:  rgba(111, 184, 154, 0.35);
   --jade-wash:  rgba(111, 184, 154, 0.12);
+  --jade-glow:  rgba(111, 184, 154, 0.18);
+
+  /* --- Hero ambience --- */
+  --hero-wash:  rgba(221, 138, 79, 0.13);
+
+  /* --- Elevation: dark mode separates surfaces with line, not shadow --- */
+  --shadow: none;
 
   /* --- Type families --- */
   --f-display: "Bricolage Grotesque", "Trebuchet MS", sans-serif;
@@ -58,4 +80,45 @@
 
   /* --- Motion --- */
   --ease: 0.18s ease;
+  --theme-ease: 0.22s ease;
+}
+
+/* ============================================================
+   LIGHT — only the values that change. Structure, type and
+   space are shared with the base palette above.
+
+   The surface ladder inverts direction: dark stacks lighter as
+   it rises (ink < panel < raised), light stacks toward white for
+   cards while chips and buttons sit a step *below* the page
+   ground, so a .btn still lifts to white on hover.
+   ============================================================ */
+:root[data-theme="light"] {
+  color-scheme: light;
+
+  --ink:        #F4F5F8;
+  --panel:      #FFFFFF;
+  --raised:     #ECEEF3;
+  --line:       #D0D7E2;
+  --line-soft:  #E4E8EF;
+
+  --text:       #131722;
+  --text-dim:   #49515F;
+  --text-mute:  #676F7E;
+
+  --copper:      #9C5A22;
+  --copper-lift: #7D4616;
+  --copper-dim:  #C08A5C;
+  --copper-text: #8A4E1D;
+  --copper-wash: rgba(156, 90, 34, 0.08);
+  --on-copper:   #FFFFFF;
+
+  --jade:       #1F7A54;
+  --jade-line:  rgba(31, 122, 84, 0.30);
+  --jade-wash:  rgba(31, 122, 84, 0.09);
+  --jade-glow:  rgba(31, 122, 84, 0.16);
+
+  --hero-wash:  rgba(156, 90, 34, 0.10);
+
+  /* Light grounds need elevation that a hairline alone cannot carry. */
+  --shadow: 0 1px 2px rgba(19, 23, 34, 0.04), 0 10px 28px -14px rgba(19, 23, 34, 0.14);
 }

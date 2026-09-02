@@ -33,4 +33,9 @@
   }
 
   .hero__pitch { max-width: none; }
+
+  .theme-toggle {
+    top: var(--s-3);
+    right: var(--s-3);
+  }
 }

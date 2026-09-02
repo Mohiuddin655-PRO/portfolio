@@ -17,7 +17,7 @@
   pointer-events: none;
   opacity: 0.55;
   background:
-    radial-gradient(60% 90% at 12% -10%, rgba(221, 138, 79, 0.13), transparent 62%),
+    radial-gradient(60% 90% at 12% -10%, var(--hero-wash), transparent 62%),
     repeating-linear-gradient(90deg, var(--line-soft) 0 1px, transparent 1px 92px);
   -webkit-mask-image: linear-gradient(to bottom, #000 55%, transparent 100%);
   mask-image: linear-gradient(to bottom, #000 55%, transparent 100%);
@@ -106,7 +106,7 @@
   font-family: var(--f-mono);
   font-size: var(--t-sm);
   font-variant-numeric: tabular-nums;
-  color: var(--copper-dim);
+  color: var(--copper-text);
 }
 
 .step__t { font-size: var(--t-md); }
@@ -144,7 +144,7 @@
   font-size: var(--t-xs);
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--copper-dim);
+  color: var(--copper-text);
 }
 
 .job__org  { font-size: var(--t-lg); }
@@ -158,6 +158,7 @@
   background: var(--panel);
   border: 1px solid var(--line);
   border-radius: var(--radius);
+  box-shadow: var(--shadow);
   transition: border-color var(--ease);
 }
 .pkg:hover { border-color: var(--copper-dim); }

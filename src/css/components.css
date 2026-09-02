@@ -48,6 +48,7 @@
   background: var(--panel);
   border: 1px solid var(--line);
   border-radius: var(--radius);
+  box-shadow: var(--shadow);
 }
 
 /* --- Rows: key/value pairs separated by a hairline --------- */
@@ -155,7 +156,7 @@
 
 .btn--primary {
   font-weight: 500;
-  color: #17110A;
+  color: var(--on-copper);
   background: var(--copper);
   border-color: var(--copper);
 }
@@ -185,5 +186,46 @@
   height: 6px;
   border-radius: 50%;
   background: var(--jade);
-  box-shadow: 0 0 0 3px rgba(111, 184, 154, 0.18);
+  box-shadow: 0 0 0 3px var(--jade-glow);
 }
+
+/* --- Theme toggle: the one piece of fixed chrome ----------- */
+.theme-toggle {
+  position: fixed;
+  top: var(--s-4);
+  right: var(--s-4);
+  z-index: 50;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  color: var(--text-dim);
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  transition: color var(--ease), border-color var(--ease), background var(--ease);
+}
+.theme-toggle:hover {
+  color: var(--copper);
+  border-color: var(--copper-dim);
+  background: var(--raised);
+}
+
+.theme-toggle svg {
+  width: 1.05rem;
+  height: 1.05rem;
+}
+
+/*
+ * Each theme shows the icon for the theme it will switch to. `display` is set
+ * on the icon classes rather than on `.theme-toggle svg`, which would outrank
+ * them (0,1,1 beats 0,1,0) and leave both icons visible at once.
+ */
+.theme-toggle__sun  { display: block; }
+.theme-toggle__moon { display: none; }
+:root[data-theme="light"] .theme-toggle__sun  { display: none; }
+:root[data-theme="light"] .theme-toggle__moon { display: block; }
