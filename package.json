@@ -10,7 +10,7 @@
     "preview": "npx --yes serve dist -l 4173"
   },
   "devDependencies": {
-    "esbuild": "^0.24.0"
+    "esbuild": "^0.28.1"
   },
   "engines": {
     "node": ">=18"
